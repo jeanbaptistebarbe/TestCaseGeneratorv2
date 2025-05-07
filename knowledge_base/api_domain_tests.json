@@ -1,0 +1,113 @@
+{
+  "domain": "API Testing",
+  "description": "Common patterns for testing REST APIs",
+  "keywords": ["api", "rest", "endpoint", "request", "response", "json", "authentication", "authorization"],
+  "guidelines": "When testing APIs, always consider authentication, authorization, input validation, error handling, response formats, performance, and security aspects.",
+  "sample_tests": [
+    {
+      "summary": "Verify successful API request with valid parameters",
+      "description": "Test that a properly formatted API request with valid parameters returns a successful response",
+      "steps": [
+        {
+          "action": "Create a valid API request with all required parameters",
+          "data": "Endpoint URL, required parameters, valid authentication token",
+          "result": "Request is properly formed"
+        },
+        {
+          "action": "Send the API request",
+          "data": "HTTP method: POST, Content-Type: application/json",
+          "result": "API returns 200 OK status code"
+        },
+        {
+          "action": "Verify the response structure",
+          "data": "Response JSON body",
+          "result": "Response contains expected fields and data types"
+        }
+      ]
+    },
+    {
+      "summary": "Verify API handles missing required parameters",
+      "description": "Test that the API properly handles and reports missing required parameters",
+      "steps": [
+        {
+          "action": "Create an API request with missing required parameters",
+          "data": "Endpoint URL, omit one or more required parameters, valid authentication token",
+          "result": "Request is formed with missing parameters"
+        },
+        {
+          "action": "Send the API request",
+          "data": "HTTP method: POST, Content-Type: application/json",
+          "result": "API returns 400 Bad Request status code"
+        },
+        {
+          "action": "Verify the error response",
+          "data": "Response JSON body",
+          "result": "Response contains appropriate error code and message indicating which parameters are missing"
+        }
+      ]
+    },
+    {
+      "summary": "Verify API authentication failure handling",
+      "description": "Test that the API correctly handles requests with invalid or missing authentication",
+      "steps": [
+        {
+          "action": "Create an API request with invalid authentication token",
+          "data": "Endpoint URL, required parameters, invalid or expired authentication token",
+          "result": "Request is formed with invalid authentication"
+        },
+        {
+          "action": "Send the API request",
+          "data": "HTTP method: POST, Content-Type: application/json",
+          "result": "API returns 401 Unauthorized status code"
+        },
+        {
+          "action": "Verify the error response",
+          "data": "Response JSON body",
+          "result": "Response contains appropriate error code and message regarding authentication failure"
+        }
+      ]
+    },
+    {
+      "summary": "Verify API input validation for invalid data types",
+      "description": "Test that the API properly validates and rejects inputs with incorrect data types",
+      "steps": [
+        {
+          "action": "Create an API request with parameters of incorrect data types",
+          "data": "Endpoint URL, parameters with incorrect data types (e.g., string instead of number), valid authentication token",
+          "result": "Request is formed with invalid data types"
+        },
+        {
+          "action": "Send the API request",
+          "data": "HTTP method: POST, Content-Type: application/json",
+          "result": "API returns 400 Bad Request status code"
+        },
+        {
+          "action": "Verify the error response",
+          "data": "Response JSON body",
+          "result": "Response contains appropriate error code and message indicating which parameters have invalid data types"
+        }
+      ]
+    },
+    {
+      "summary": "Verify API rate limiting functionality",
+      "description": "Test that the API enforces rate limiting when too many requests are made in a short period",
+      "steps": [
+        {
+          "action": "Create multiple valid API requests",
+          "data": "Endpoint URL, valid parameters, valid authentication token",
+          "result": "Multiple valid requests are prepared"
+        },
+        {
+          "action": "Send requests rapidly to exceed rate limit",
+          "data": "Send requests in rapid succession, exceeding the defined rate limit",
+          "result": "Initial requests succeed with 200 OK, then requests begin to receive 429 Too Many Requests status code"
+        },
+        {
+          "action": "Verify the rate limit error response",
+          "data": "Response headers and body of rejected request",
+          "result": "Response contains Retry-After header and appropriate error message about rate limiting"
+        }
+      ]
+    }
+  ]
+}
