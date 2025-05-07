@@ -1,6 +1,6 @@
 # Test Case Generator v2
 
-An automated application that generates comprehensive test cases from Jira User Stories using Claude API and imports them directly into Xray.
+An automated application that generates comprehensive test cases from Jira User Stories using Claude API and imports them directly into Xray with a knowledge base in MarkDown to ensure more accuracy in the area tested.
 
 ## Features
 
