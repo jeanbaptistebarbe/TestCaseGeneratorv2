@@ -1,0 +1,40 @@
+{
+  "domain": "Domain Name",
+  "description": "Description of this knowledge domain",
+  "keywords": ["keyword1", "keyword2", "keyword3"],
+  "guidelines": "Testing guidelines and best practices for this domain.",
+  "sample_tests": [
+    {
+      "summary": "Test Case Title 1",
+      "description": "Detailed description of what this test verifies",
+      "steps": [
+        {
+          "action": "Step 1 action - what the user or system does",
+          "data": "Test data used for this step",
+          "result": "Expected result of this step"
+        },
+        {
+          "action": "Step 2 action",
+          "data": "Test data for step 2",
+          "result": "Expected result of step 2"
+        }
+      ]
+    },
+    {
+      "summary": "Test Case Title 2",
+      "description": "Detailed description of what this test verifies",
+      "steps": [
+        {
+          "action": "Step 1 action",
+          "data": "Test data",
+          "result": "Expected result"
+        },
+        {
+          "action": "Step 2 action",
+          "data": "Test data",
+          "result": "Expected result"
+        }
+      ]
+    }
+  ]
+}
