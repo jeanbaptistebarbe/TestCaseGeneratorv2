@@ -1,0 +1,113 @@
+{
+  "domain": "UI Testing",
+  "description": "Common patterns for testing user interfaces",
+  "keywords": ["ui", "interface", "form", "button", "input", "validation", "responsive", "accessibility"],
+  "guidelines": "When testing UI components, focus on functionality, usability, error handling, responsive design, accessibility, and cross-browser compatibility.",
+  "sample_tests": [
+    {
+      "summary": "Verify form validation for required fields",
+      "description": "Test that a form properly validates and highlights required fields when they are left empty",
+      "steps": [
+        {
+          "action": "Navigate to the form page",
+          "data": "Form URL",
+          "result": "Form loads correctly with all fields visible"
+        },
+        {
+          "action": "Leave required fields empty and submit the form",
+          "data": "Click the submit button without filling in required fields",
+          "result": "Form submission is prevented and required fields are highlighted with error messages"
+        },
+        {
+          "action": "Verify error message text",
+          "data": "Error messages displayed near each required field",
+          "result": "Error messages clearly indicate that fields are required"
+        }
+      ]
+    },
+    {
+      "summary": "Verify form input field validation for specific formats",
+      "description": "Test that input fields validate data according to specific format requirements",
+      "steps": [
+        {
+          "action": "Navigate to the form page",
+          "data": "Form URL",
+          "result": "Form loads correctly"
+        },
+        {
+          "action": "Enter invalid data in formatted fields (email, phone, date, etc.)",
+          "data": "Email: 'not-an-email', Phone: 'abc123', Date: '32/13/2023'",
+          "result": "Form either prevents invalid input or displays validation errors on submission"
+        },
+        {
+          "action": "Verify validation error messages",
+          "data": "Error messages for each invalidly formatted field",
+          "result": "Error messages clearly explain the expected format"
+        }
+      ]
+    },
+    {
+      "summary": "Verify responsive design on different screen sizes",
+      "description": "Test that the UI adapts correctly to different screen sizes and maintains usability",
+      "steps": [
+        {
+          "action": "Open the page on a desktop browser",
+          "data": "Page URL, desktop screen size (e.g., 1920x1080)",
+          "result": "Page displays correctly in desktop layout"
+        },
+        {
+          "action": "Resize browser to tablet dimensions",
+          "data": "Resize to tablet screen size (e.g., 768x1024)",
+          "result": "Page layout adjusts for tablet view with all elements accessible"
+        },
+        {
+          "action": "Resize browser to mobile dimensions",
+          "data": "Resize to mobile screen size (e.g., 375x667)",
+          "result": "Page layout adjusts for mobile view with all elements accessible"
+        }
+      ]
+    },
+    {
+      "summary": "Verify accessibility compliance",
+      "description": "Test that the UI elements comply with accessibility standards",
+      "steps": [
+        {
+          "action": "Verify keyboard navigation",
+          "data": "Tab through interactive elements",
+          "result": "All interactive elements can be accessed and operated using keyboard only"
+        },
+        {
+          "action": "Check proper labeling of form fields",
+          "data": "Examine form field labels and ARIA attributes",
+          "result": "All form fields have appropriate labels and ARIA attributes"
+        },
+        {
+          "action": "Verify sufficient color contrast",
+          "data": "Examine text and background color combinations",
+          "result": "Text has sufficient contrast ratio with its background according to WCAG standards"
+        }
+      ]
+    },
+    {
+      "summary": "Verify error state handling in UI components",
+      "description": "Test that UI components correctly display error states and messages",
+      "steps": [
+        {
+          "action": "Trigger an error condition in a UI component",
+          "data": "Specific actions to trigger error states (e.g., server error, validation error)",
+          "result": "Component transitions to error state"
+        },
+        {
+          "action": "Verify error state visual indicators",
+          "data": "Error styling, icons, and messages",
+          "result": "Error state is clearly indicated visually"
+        },
+        {
+          "action": "Verify error recovery options",
+          "data": "Error message, retry buttons, or other recovery mechanisms",
+          "result": "User has clear instructions on how to recover from the error"
+        }
+      ]
+    }
+  ]
+}
